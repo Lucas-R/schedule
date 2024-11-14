@@ -1,10 +1,31 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home } from '@/Pages/home'
+import { Template } from '@/template'
+import { Home } from '@/pages/home'
+import { Services } from '@/pages/Sevices'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Template />,
+    handle: {
+      crumb: 'Início',
+    },
+    children: [
+      {
+        path: '/hoje',
+        element: <Home />,
+        handle: {
+          crumb: 'Hoje',
+        },
+      },
+      {
+        path: '/servicos',
+        element: <Services />,
+        handle: {
+          crumb: 'Serviços',
+        },
+      },
+    ],
   },
 ])
 
